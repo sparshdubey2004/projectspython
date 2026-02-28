@@ -56,7 +56,8 @@ python -m venv venv
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
-Install Core Dependencies
+
+#Install Core Dependencies
 
 Bash
 pip install PyQt6 pdfplumber transformers torch
@@ -64,15 +65,4 @@ Launch the Application
 
 Bash
 python pdfsum.py
-🧠 How It Works
-Ingestion: The file is loaded via the PyQt6 interface and parsed using pdfplumber to ensure layout is respected.
 
-The "Token" Problem: Most LLMs have a strict input limit. To solve this, I implemented a Map-Reduce strategy:
-
-Map: The text is split into logical chunks.
-
-Summarize: Each chunk is summarized independently by the BART model.
-
-Reduce: The chunk-summaries are combined and processed one final time to create a cohesive global summary.
-
-Output: The final summary is rendered instantly within the application.
